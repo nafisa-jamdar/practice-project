@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opthalmic Diagnosis detection through deep learning </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .hero {
+            background: black url(static/images/download.png) center / cover;
+        }
+        .title, .subtitle {
+            color: #fff;
+        }
+        .pred-section {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+        .button-custom {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-1"><strong>Opthalmic Diagnosis detection through deep learning</strong></h1>
+                
+
+                <!-- <div class="columns is-centered">
+                    <div class="column is-half img-container">
+                        <img class="pred_img" src="{{ url_for('send_file', filename=image_file_name) }}" alt="Prediction Image"/>
+                    </div>
+                </div>
+
+                <div class="pred-section">
+                    <h2 class="title is-3">
+                        Detected Diagnosis is <span style="font-weight: bold; color: #f39c12;">{{ label }}</span>
+                    </h2>
+                    <h3 class="subtitle is-4">
+                        Confidence: <span style="font-weight: bold; color: #1abc9c;">{{ prob }}</span>
+                    </h3>
+                    <a href="/" class="button button-custom is-black is-outlined">Return to Home</a>
+                </div> -->
+                <div class="columns is-multiline is-centered">
+                    {% for image_file_name, label, prob in results %}
+                    <div class="column is-one-third has-text-centered">
+                        <div class="box" style="background-color: #333;">
+                            <img class="pred_img" src="{{ url_for('send_file', filename=image_file_name) }}" alt="Prediction Image" style="width: 100%; height: auto;">
+                            <h2 class="title is-4" style="color: #f39c12; margin-top: 10px;">
+                                Diagnosis: {{ label }}
+                            </h2>
+                            <h3 class="subtitle is-5" style="color: #1abc9c;">
+                                Confidence: {{ prob }}%
+                            </h3>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="has-text-centered" style="margin-top: 30px;">
+                    <a href="/" class="button button-custom is-black is-outlined">Return to Home</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <script src="/static/script.js"></script>
+</body>
+</html>

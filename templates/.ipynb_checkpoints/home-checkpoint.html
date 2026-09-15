@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opthalmic Diagnosis detection through deep learning </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .hero {
+            background: black url(static/images/bg1.jpg) center / cover;
+        }
+        .title, .subtitle, .subsubtitle {
+            color: white;
+        }
+        .file-name {
+            color: #f39c12;
+        }
+        .button-custom {
+            margin-top: 20px;
+        }
+        .footer {
+            background-color: #222;
+            padding: 20px 0;
+            color: white;
+        }
+        .footer strong {
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title"><strong>Opthalmic Diagnosis detection through deep learning </strong></h1>
+                <p class="subsubtitle">Check Opthalmic Diagnosis output</p>
+
+                <form action="/classify" method="post" enctype="multipart/form-data" style="margin-top: 30px;">
+                    <div class="file has-name is-centered">
+                        <label class="file-label">
+                            <input class="file-input" type="file" id="image" name="image">
+                            <span class="file-cta">
+                                <span class="file-label">Upload an Input image</span>
+                            </span>
+                            <span class="file-name" id="file-name">No file chosen</span>
+                        </label>
+                    </div>
+                    <input type="submit" value="Result" class="button is-black button-custom" id="classify_button">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="section">
+        <div class="container has-text-centered">
+            <img src="static/images/download.jpeg" alt="Detection Image" width="200" height="200">
+        </div>
+    </section>
+
+     <script src="/static/script.js"></script>
+</body>
+</html>
